@@ -1,3 +1,3 @@
 taskkill /f /fi "WindowTitle eq demo-cicd" /t
 title demo-cicd
-call mvn spring-boot:run
+java -jar demo-0.0.1-SNAPSHOT.jar
