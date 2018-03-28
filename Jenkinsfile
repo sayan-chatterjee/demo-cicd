@@ -10,5 +10,5 @@ node("local") {
 
 	stage 'Start Application'
 	bat 'java -jar **/target/demo-0.0.1-SNAPSHOT.jar'
-} 
+}
 	
