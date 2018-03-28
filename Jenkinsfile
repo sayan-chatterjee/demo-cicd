@@ -1,4 +1,4 @@
-node("local") {
+node {
 	stage 'Checkout'
 	checkout scm
 	
