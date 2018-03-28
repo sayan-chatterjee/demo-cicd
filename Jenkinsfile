@@ -1,21 +1,13 @@
-pipeline {
-    agent any
+node("local") {
+	stage 'Checkout'
+	checkout scm
+	
+	stage 'Compile'
+	bat 'mvn -e clean compile'
+	
+	stage 'Package'
+	bat 'mvn -DskipTests=true clean package'
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+	stage 'Start Application'
+	bat 'java -jar **/target/demo-0.0.1-SNAPSHOT.jar'
 }
