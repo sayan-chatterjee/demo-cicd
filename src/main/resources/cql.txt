@@ -1,0 +1,11 @@
+==========================================
+Delete all nodes and relationships : 
+MATCH (n) DETACH DELETE n
+==========================================
+Find followers and followee : 
+MATCH (i:Person)-[beingFollowed:FOLLOWER]->(j:Person{name:'Sayan'})-[follows:FOLLOWER]->(k:Person) RETURN i,j,k
+Find followers
+MATCH (i:Person)-[beingFollowed:FOLLOWER]->(j:Person{name:'Sayan'}) RETURN i,j
+Find followee
+MATCH (j:Person{name:'Sayan'})-[follows:FOLLOWER]->(k:Person) RETURN j,k
+==========================================
