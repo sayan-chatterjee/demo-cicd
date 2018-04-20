@@ -9,5 +9,6 @@ node {
 	bat 'mvn -DskipTests=true clean package'
 
 	stage 'Start Application'
-	bat 'java -jar ./target/demo-cicd-0.0.1-SNAPSHOT.jar'
+	#bat 'java -jar ./target/demo-cicd-0.0.1-SNAPSHOT.jar'
+	bat 'run.bat'
 }
