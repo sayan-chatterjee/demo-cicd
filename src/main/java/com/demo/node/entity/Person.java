@@ -11,13 +11,19 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"_id","employee_name", "employee_followers"})
 @NodeEntity
 public class Person {
 	
+	@JsonProperty("_id")
 	@Id 
 	@GeneratedValue
 	private Long id;
 
+	@JsonProperty("employee_name")
 	private String name;
 
 	private Person() {
@@ -33,6 +39,7 @@ public class Person {
 	 * to ignore the direction of the relationship.
 	 * https://dzone.com/articles/modelling-data-neo4j
 	 */
+	@JsonProperty("employee_followers")
 	@Relationship(type = "FOLLOWER")
 	public Set<Person> follower;
 	
